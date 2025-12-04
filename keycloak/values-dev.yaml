@@ -4,7 +4,7 @@ auth:
 ingress:
   hostname: dev-auth.sonth-my-app.com
   annotations:
-    cert-manager.io/cluster-issuer: "dev-ca-issuer"
+    cert-manager.io/cluster-issuer: "selfsigned"
   extraTls:
     - hosts:
         - dev-auth.sonth-my-app.com
