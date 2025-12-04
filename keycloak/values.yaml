@@ -1,0 +1,31 @@
+## Common values for both dev and prod
+replicaCount: 1
+
+auth:
+  adminUser: admin
+  adminPassword: "CHANGEME"
+
+production: true
+proxy: "edge"
+
+postgresql:
+  enabled: true
+  postgresqlUsername: keycloak
+  postgresqlPassword: admin123
+  postgresqlDatabase: keycloak
+
+service:
+  httpPort: 8080
+  httpsPort: 8443
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  tls: true
+  pathType: ImplementationSpecific
+
+persistence:
+  enabled: true
+  size: 8Gi

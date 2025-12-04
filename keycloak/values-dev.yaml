@@ -1,0 +1,25 @@
+auth:
+  adminPassword: "admin123"
+
+ingress:
+  hostname: dev-auth.sonth-my-app.com
+  annotations:
+    cert-manager.io/cluster-issuer: "dev-ca-issuer"
+  extraTls:
+    - hosts:
+        - dev-auth.sonth-my-app.com
+      secretName: keycloak-dev-tls
+
+postgresql:
+  postgresqlPassword: dev123
+
+persistence:
+  size: 4Gi
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi

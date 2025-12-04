@@ -1,0 +1,29 @@
+## PROD environment overrides
+
+replicaCount: 2
+
+auth:
+  adminPassword: "admin123"
+
+ingress:
+  hostname: auth.sonth-my-app.com
+  annotations:
+    cert-manager.io/cluster-issuer: "prod-ca-issuer"
+  extraTls:
+    - hosts:
+        - auth.sonth-my-app.com
+      secretName: keycloak-prod-tls
+
+postgresql:
+  postgresqlPassword: prod123
+
+persistence:
+  size: 8Gi
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 1
+    memory: 2Gi
